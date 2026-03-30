@@ -19,6 +19,7 @@
 // O programa deve gerar uma linha para cada caso de teste na entrada, contendo a frase: A RENDA DO
 // JOGO N. x E = y, onde x corresponde a ordem do caso de teste na entrada e y é um valor real com duas
 // casas decimais que corresponde ao valor da renda total do jogo x.
+
 package main
 
 import (
