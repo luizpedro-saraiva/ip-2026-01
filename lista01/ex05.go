@@ -25,6 +25,33 @@
 
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
+
+	var valor_Conta float64
+	var conta_Cliente int
+	var consumo_Agua float64
+	var tipo_Cliente string
+
+	fmt.Print("Informe o número da conta, valor do consumo de água e tipo de cliente: 'C' - Comercial, 'I' - Industrial ou 'R' - Residencial. ")
+
+	fmt.Scan(&valor_Conta, &consumo_Agua, &tipo_Cliente)
+	fmt.Scan(&conta_Cliente)
+
+	if tipo_Cliente == "I" {
+		valor_Conta = 800 + ((consumo_Agua - 100) * 0.04)
+		fmt.Printf("Conta = %d\nVALOR DA CONTA = %.2f", conta_Cliente, valor_Conta)
+	} else if tipo_Cliente == "C" {
+		valor_Conta = 500 + ((consumo_Agua - 80) * 0.25)
+		fmt.Printf("Conta = %d\nVALOR DA CONTA = %.2f", conta_Cliente, valor_Conta)
+	} else if tipo_Cliente == "R" {
+		valor_Conta = 5 + (consumo_Agua * 0.05)
+		fmt.Printf("Conta = %d\nVALOR DA CONTA = %.2f", conta_Cliente, valor_Conta)
+	} else {
+		fmt.Print("Informe um tipo de cliente válido!")
+	}
 
 }
