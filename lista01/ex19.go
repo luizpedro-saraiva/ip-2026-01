@@ -11,6 +11,26 @@
 
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+func main() {
+	var a1, r, n int
+	var somaFinal int
+	var termo int
+
+	fmt.Scan(&a1, &r, &n)
+
+	termo = a1
+
+	if n > 0 {
+		for i := 1; i <= n; i++ {
+			somaFinal += termo
+			termo += r
+		}
+		fmt.Println(somaFinal)
+	} else {
+		fmt.Println("Valor invalido!")
+	}
 }

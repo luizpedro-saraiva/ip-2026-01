@@ -10,6 +10,24 @@
 
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+func main() {
+	var horas, minutos, segundos int
+	var total int
+
+	fmt.Print("Digite as horas: ")
+	fmt.Scan(&horas)
+
+	fmt.Print("Digite os minutos: ")
+	fmt.Scan(&minutos)
+
+	fmt.Print("Digite os segundos: ")
+	fmt.Scan(&segundos)
+
+	total = (horas * 3600) + (minutos * 60) + segundos
+
+	fmt.Printf("O TEMPO EM SEGUNDOS E = %d\n", total)
 }
