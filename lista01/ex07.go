@@ -15,6 +15,22 @@
 
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
+	var fahrenheit float64
+	var celsius float64
+	var qtdChuva float64
+	var qtdMilimetro float64
+
+	fmt.Scan(&fahrenheit, &qtdChuva)
+	fmt.Print("Informe quantidade de chuva em polegadas e a temperatura em Fahrenheit: ")
+
+	celsius = ((5.0 * fahrenheit) - 160) / 9
+	qtdMilimetro = qtdChuva * 25.4
+
+	fmt.Printf("O VALOR EM CELSIUS = %.2f\nA QUANTIDADE DE CHUVA E = %.2f\n", celsius, qtdMilimetro)
 
 }

@@ -13,6 +13,23 @@
 
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+func main() {
+	var Fahrenheit float64
+	var Celsius float64
+	var quantidadesTemperaturas int 
+	
+	fmt.Scan(&quantidadesTemperaturas)
+	fmt.Println("Informe a quantidade de temperaturas que serão convertidas")	
+
+	for i := 0; i < int(quantidadesTemperaturas); i++ {
+		fmt.Printf("Informe a temperatura %d: ", i+1)
+		fmt.Scan(&Fahrenheit)
+
+		celsius = (5.0 * (fahrenheit - 32)) / 9
+
+		fmt.Printf("%.2f FAHRENHEIT EQUIVALE A %.2f CELSIUS\n", fahrenheit, celsius)
 }
