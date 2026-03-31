@@ -1,3 +1,4 @@
+// Cálculo do Delta na Equação de Báskara - Att9
 // Fazer um programa para ler os valores dos coeficientes A, B e C de uma equação quadrática e calcular
 // e imprimir o valor do discriminante (∆). O valor de ∆ é dado pela fórmula: ∆ = B2 − 4AC.
 // Entrada
@@ -13,9 +14,22 @@
 // na função de impressão p r i n t f ( ) . Supondo que você usou a variável d e l t a para armazenar o valor do
 // discriminante, você poderia imprimir o conteúdo dessa variável com duas casas decimais usando a função
 // de impressão do seguinte modo: p r i n t f ("%.2f\n" , d e l t a ) ; .
-
 package main
 
+import (
+	"fmt"
+	"math"
+)
+
 func main() {
+	var A, B, C float64
+	var delta float64
+
+	fmt.Print("Informe os valores de A, B e C: ")
+	fmt.Scan(&A, &B, &C)
+
+	delta = (math.Pow(B, 2)) - (4 * A * C)
+
+	fmt.Printf("O VALOR DE DELTA E = %.2f", delta)
 
 }

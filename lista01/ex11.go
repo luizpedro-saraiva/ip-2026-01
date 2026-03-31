@@ -1,3 +1,4 @@
+// Divisível por 3 e 5 - Att11
 // Desenvolver um programa que leia um número inteiro e verifique se o número é divisível por três e
 // também é divisível por cinco.
 // Entrada
@@ -9,6 +10,19 @@
 
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+func main() {
+	var n int
+
+	fmt.Print("Informe um número: ")
+	fmt.Scan(&n)
+
+	if n%3 == 0 && n%5 == 0 {
+		fmt.Println("O NÚMERO É DIVISÍVEL")
+	} else {
+		fmt.Println("O NÚMERO NÃO É DIVISÍVEL")
+	}
 }

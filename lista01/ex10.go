@@ -1,3 +1,4 @@
+// Cálculo do Determinante de uma Matriz Quadrada de Duas Dimensões - Att10
 // Fazer um programa tal que dados os quatro elementos de uma matriz 2 x 2, calcule e escreva o valor do
 // determinante desta matriz.
 // Entrada
@@ -15,6 +16,19 @@
 
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
+	var A, B, C, D float64
+	var d float64
+
+	fmt.Print("Informe os valores de A, B, C e D: ")
+	fmt.Scan(&A, &B, &C, &D)
+
+	d = (A * D) - (C * B)
+
+	fmt.Printf("O VALOR DO DETERMINANTE E = %.2f\n", d)
 
 }

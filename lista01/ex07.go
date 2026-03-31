@@ -1,3 +1,4 @@
+// Conversões para o Sistema Métrico - Att7
 // Muitos países estão passando a utilizar o sistema métrico. Faça um programa para executar as seguintes
 // conversões:
 // • Ler uma temperatura em Fahrenheit e imprimir o equivalente em Celsius (C = (5F − 160)/9).
