@@ -7,9 +7,12 @@ import f "fmt"
 
 func main() {
 
-	var h int
+	var H float64 = 0.0
 
-	f.Println("Digite um número: ")
-	f.Scan(&h)
+	for i := 1; i <= 50; i++ {
+		H += float64(2*i-1) / float64(i)
+	}
+
+	f.Printf("Valor de H: %.6f\n", H)
 
 }
