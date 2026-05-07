@@ -8,3 +8,78 @@
 // poltronas estão disponíveis para a venda;
 // - quando não existirem poltronas livres no corredor, nas janelas ou, ainda, quando o ônibus estiver
 // completamente cheio, deve ser mostrada uma mensagem.
+
+package main
+
+import "fmt"
+
+func main() {
+	var janela [24]int // 0: livre, 1: ocupada
+	var corredor [24]int
+	var totalOcupado int
+
+	for {
+		// Verifica se o ônibus está lotado
+		if totalOcupado == 48 {
+			fmt.Println("\nÔnibus completamente lotado!")
+			break
+		}
+
+		fmt.Println("\n--- Sistema de Vendas de Passagens ---")
+		fmt.Println("1 - Janela")
+		fmt.Println("2 - Corredor")
+		fmt.Println("0 - Encerrar")
+		fmt.Print("Escolha o tipo de poltrona: ")
+
+		var opcao int
+		fmt.Scan(&opcao)
+
+		if opcao == 0 {
+			break
+		}
+
+		var vetor *[24]int
+		var tipo string
+
+		if opcao == 1 {
+			vetor = &janela
+			tipo = "Janela"
+		} else if opcao == 2 {
+			vetor = &corredor
+			tipo = "Corredor"
+		} else {
+			fmt.Println("Opção inválida!")
+			continue
+		}
+
+		// Mostra poltronas disponíveis no tipo escolhido
+		disponiveis := false
+		fmt.Printf("Poltronas de %s disponíveis: ", tipo)
+		for i := 0; i < 24; i++ {
+			if vetor[i] == 0 {
+				fmt.Printf("[%d] ", i+1)
+				disponiveis = true
+			}
+		}
+		fmt.Println()
+
+		if !disponiveis {
+			fmt.Printf("Não existem mais poltronas livres na %s.\n", tipo)
+		} else {
+			fmt.Print("Digite o número da poltrona desejada: ")
+			var num int
+			fmt.Scan(&num)
+
+			indice := num - 1
+			if indice < 0 || indice >= 24 || vetor[indice] == 1 {
+				fmt.Println("Poltrona inválida ou já ocupada!")
+			} else {
+				vetor[indice] = 1
+				totalOcupado++
+				fmt.Println("Venda efetuada com sucesso!")
+			}
+		}
+	}
+
+	fmt.Println("Sistema encerrado.")
+}

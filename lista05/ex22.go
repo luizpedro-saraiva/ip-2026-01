@@ -19,3 +19,119 @@
 // - Para consultar o ativo bancário deve-se somar o saldo de todas as contas do banco. Depois de mostrar esse
 // valor, voltar ao menu.
 // - O programa só termina quando for digitada a opção 4 – Finalizar programa.
+
+package main
+
+import "fmt"
+
+func main() {
+	var codigos [10]int
+	var saldos [10]float64
+
+	// 1. Cadastro das Contas
+	fmt.Println("--- Cadastro de 10 Contas ---")
+	for i := 0; i < 10; {
+		var codigo int
+		fmt.Printf("Código da conta %d: ", i+1)
+		fmt.Scan(&codigo)
+
+		// Verifica se o código já existe para evitar duplicatas
+		duplicado := false
+		for j := 0; j < i; j++ {
+			if codigos[j] == codigo {
+				duplicado = true
+				break
+			}
+		}
+
+		if duplicado {
+			fmt.Println("Erro: Já existe uma conta com esse código. Tente outro.")
+			continue
+		}
+
+		codigos[i] = codigo
+		fmt.Printf("Saldo inicial da conta %d: ", codigo)
+		fmt.Scan(&saldos[i])
+		i++
+	}
+
+	// 2. Menu Principal
+	for {
+		fmt.Println("\n--- Menu Bancário ---")
+		fmt.Println("1. Efetuar depósito")
+		fmt.Println("2. Efetuar saque")
+		fmt.Println("3. Consultar ativo bancário")
+		fmt.Println("4. Finalizar programa")
+		fmt.Print("Escolha uma opção: ")
+
+		var opcao int
+		fmt.Scan(&opcao)
+
+		if opcao == 4 {
+			fmt.Println("Programa finalizado.")
+			break
+		}
+
+		switch opcao {
+		case 1: // Depósito
+			var conta int
+			fmt.Print("Código da conta: ")
+			fmt.Scan(&conta)
+
+			indice := -1
+			for i, v := range codigos {
+				if v == conta {
+					indice = i
+					break
+				}
+			}
+
+			if indice == -1 {
+				fmt.Println("Conta não encontrada.")
+			} else {
+				var vlr float64
+				fmt.Print("Valor do depósito: ")
+				fmt.Scan(&vlr)
+				saldos[indice] += vlr
+				fmt.Printf("Depósito realizado! Novo saldo: R$ %.2f\n", saldos[indice])
+			}
+
+		case 2: // Saque
+			var conta int
+			fmt.Print("Código da conta: ")
+			fmt.Scan(&conta)
+
+			indice := -1
+			for i, v := range codigos {
+				if v == conta {
+					indice = i
+					break
+				}
+			}
+
+			if indice == -1 {
+				fmt.Println("Conta não encontrada.")
+			} else {
+				var vlr float64
+				fmt.Print("Valor do saque: ")
+				fmt.Scan(&vlr)
+				if vlr > saldos[indice] {
+					fmt.Println("Saldo insuficiente.")
+				} else {
+					saldos[indice] -= vlr
+					fmt.Printf("Saque realizado! Novo saldo: R$ %.2f\n", saldos[indice])
+				}
+			}
+
+		case 3: // Ativo Bancário
+			ativo := 0.0
+			for _, s := range saldos {
+				ativo += s
+			}
+			fmt.Printf("Ativo bancário total (soma de todos os saldos): R$ %.2f\n", ativo)
+
+		default:
+			fmt.Println("Opção inválida.")
+		}
+	}
+}
