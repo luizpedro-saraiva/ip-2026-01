@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Paciente</title>
+    <link rel="stylesheet" href="/styles/createAccount.style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>➕ Cadastrar Paciente</h1>
+
+        <!-- O action="/form" aponta para a rota definida no main.go -->
+        <form action="/form" method="POST">
+
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" name="nome_completo" placeholder="Ex: Maria Silva" required>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="(62) 99999-9999">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="paciente@email.com">
+
+            <label for="diagnostico">Diagnóstico:</label>
+            <textarea id="diagnostico" name="diagnostico" placeholder="Descreva o diagnóstico..."></textarea>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <a href="/">← Voltar ao início</a>
+    </div>
+</body>
+</html>
